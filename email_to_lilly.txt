@@ -1,0 +1,91 @@
+To: Lilly.sawyer@fastier.com
+From: aws@aws.com
+Subject: Scalable and Resilient AWS Architecture for Faster
+
+Hi Lilly,
+
+Thanks again for reaching out, and congratulations on the growth Faster has seen recently! It's always exciting to support a dynamic and fast-moving startup like yours. After reviewing your current setup and understanding the issues you're facing—slow response times, server crashes, downtime during deployments, and lack of disaster recovery—we’ve put together a tailored AWS architecture that aims to solve these problems and help you scale confidently.
+
+Please find the proposed architecture attached. Below, I’ll walk you through each component, why it was chosen, and how costs may vary over time.
+
+
+
+ Architecture Overview
+
+The diagram is designed around high availability, scalability, faster deployments, and disaster recovery—critical needs for a growing application like Fastier. Here's how each part contributes:
+
+
+
+Route 53 (DNS Management)
+
+At the front of your architecture is Route 53, which handles domain name resolution and routing. It’s highly reliable, integrates seamlessly with AWS resources, and can support health checks and failover routing in the future if needed.
+
+
+
+ Elastic Load Balancer (ELB)
+
+The ELB sits between Route 53 and your compute layer. It intelligently distributes traffic across multiple backend EC2 instances, preventing any single server from becoming overloaded. It also helps during instance failures or maintenance events.
+
+
+
+Elastic Beanstalk + Auto Scaling EC2 Group
+
+Your current single EC2 instance is a bottleneck. We recommend migrating your backend (Python/Flask app) to Elastic Beanstalk, which provides managed environments that automatically handle provisioning, load balancing, auto-scaling, and health monitoring.
+
+It also supports zero-downtime deployments through blue/green and rolling update strategies—perfect for avoiding the downtime you mentioned during releases. Under the hood, it uses an auto-scaling group of EC2 instances, so your application can grow or shrink with demand.
+
+
+
+Amazon RDS (PostgreSQL)
+
+Your PostgreSQL database can be migrated to Amazon RDS, which provides managed database hosting with automatic backups, patching, and multi-AZ replication. The primary RDS instance will be hosted in one availability zone, while a standby replica in another AZ provides failover support. This enhances availability and reliability.
+
+
+
+Amazon S3 for Backups and Static Hosting
+
+We recommend using Amazon S3 for two purposes:
+
+Backups: Store periodic snapshots of your application and database securely.
+
+Frontend Hosting: Your React SPA can be hosted as static content in S3 and served globally via CloudFront (optional), improving performance for end users.
+
+
+
+ AWS CodePipeline
+
+CodePipeline will be used to automate code deployments from your source repository directly to Elastic Beanstalk. This reduces manual errors and ensures consistent, repeatable builds and deployments.
+
+
+
+Cost Overview
+
+Here’s how costs are structured and how they may vary:
+
+Elastic Beanstalk / EC2: You pay per EC2 instance-hour used, which depends on traffic levels and auto-scaling activity. During peak times, more instances may spin up (increasing costs), and they scale down during idle periods (saving money).
+
+RDS: Charges depend on instance type and storage. Multi-AZ replication does increase cost but significantly improves reliability.
+
+Elastic Load Balancer: Billed per hour and by the amount of traffic processed.
+
+S3: Charged based on storage size and data retrieval; very cost-efficient for static content and backups.
+
+Route 53: Minimal charges for hosted zones and DNS queries.
+
+CodePipeline: Charged per active pipeline per month—low cost and high impact for deployment efficiency.
+
+These costs scale based on usage, making this architecture cost-effective for startups. It also offers visibility and control through AWS Cost Explorer and budgets, so you can monitor and forecast expenses.
+
+
+
+Final Thoughts
+
+This architecture gives you the flexibility to grow, tools to recover, and the efficiency to deploy quickly, while also removing your single point of failure. As a startup, it also future-proofs your infrastructure for predictable growth.
+
+We’d be happy to help guide you through migration and setup. Please let us know if you’d like a walkthrough, estimated costs using the AWS Pricing Calculator, or any changes based on your development workflow.
+
+Warm regards,
+[Marda Anurag]
+Solutions Architect
+Amazon Web Services
+aws@aws.com
