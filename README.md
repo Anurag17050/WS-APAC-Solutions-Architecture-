@@ -28,8 +28,7 @@ To design a reliable and scalable cloud-based solution for a client experiencing
 
 📷 Architecture Diagram:
 -------------------------
-Refer to `<img width="1136" height="906" alt="Architecture Diagram" src="https://github.com/user-attachments/assets/01258e8e-64bc-402b-9b09-d034a372d2c8" />
-` for a visual overview of the deployed architecture (attached in the repository).
+Refer to `architecture_diagram.png` for a visual overview of the deployed architecture (attached in the repository).
 
 📧 Client Communication Sample:
 -------------------------------
@@ -43,6 +42,13 @@ See `client_email_to_lilly.txt` for the full email draft sent to the client, exp
 - S3: Per GB stored/retrieved  
 - Route 53 & CodePipeline: Minimal usage-based billing  
 
+🎓 Certification:
+-----------------
+✅ **Certificate of Completion**  
+**AWS APAC Solutions Architecture Virtual Experience Program (Forage)**  
+Awarded: June 2025  
+[certification](https://drive.google.com/file/d/1KdSplGZLLbvwwbQs6yO_Q14ZoqW1vSNz/view?usp=sharing) 
+
 💡 Learning Outcomes:
 ---------------------
 ✔ Designed full-stack architecture for cloud-native deployment  
@@ -52,17 +58,9 @@ See `client_email_to_lilly.txt` for the full email draft sent to the client, exp
 
 📂 Repository Structure:
 ------------------------
-- `<img width="1136" height="906" alt="Architecture Diagram" src="https://github.com/user-attachments/assets/3f5c0604-5b3e-4dee-977a-ae07ec7b4c12" />
-` – Architecture visual  
+- `architecture_diagram.png` – Architecture visual  
 - `client_email_to_lilly.txt` – Professional client-facing explanation  
 - `README.txt` – Project summary (this file)
-
-🎓 Certification:
------------------
-✅ **Certificate of Completion**  
-**AWS APAC Solutions Architecture Virtual Experience Program (Forage)**  
-Awarded: June 2025  
-Credential: [https://drive.google.com/file/d/1KdSplGZLLbvwwbQs6yO_Q14ZoqW1vSNz/view?usp=sharing]
 
 ---
 
